@@ -9,9 +9,16 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'haml-rails'
+gem 'bootstrap-generators', '~> 3.3.4'
+gem 'bcrypt', '~> 3.1.7'
 
 group :development, :test do
+  # Use pry with Rails console
+  gem 'pry-rails'
   gem 'byebug'
+  # Better Rails Error Pages
+  gem 'better_errors'
 end
 
 group :development do
