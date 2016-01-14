@@ -1,0 +1,30 @@
+.page-header
+  = link_to new_todo_path, class: 'btn btn-primary' do
+    %span.glyphicon.glyphicon-plus
+    New Todo
+  %h1 Here are your TODOS
+
+.table-responsive.todos
+  %table.table.table-striped.table-bordered.table-hover
+    %thead
+      %tr
+        %th Title
+        %th Completed
+        %th Show
+        %th Edit
+        %th Destroy
+
+    %tbody
+      - @todos.each do |todo|
+        %tr
+          %td= todo.title
+          %td
+            = link_to("/todos/#{todo.id}/toggle_completed") do
+              - if todo.completed
+                %span.glyphicon.glyphicon-ok
+              - else
+                %span.glyphicon.glyphicon-unchecked
+          %td= link_to 'Show', todo
+          %td= link_to 'Edit', edit_todo_path(todo)
+          %td= link_to 'Destroy', todo, data: { confirm: 'Are you sure?' }, method: :delete
+
